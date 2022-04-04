@@ -109,13 +109,15 @@ export default class Terms extends React.Component<TermsProps> {
             onResize: this.props.onResize,
             onTitle: this.props.onTitle,
             onData: this.props.onData,
-            toggleSearch: this.props.toggleSearch,
+            onOpenSearch: this.props.onOpenSearch,
+            onCloseSearch: this.props.onCloseSearch,
             onContextMenu: this.props.onContextMenu,
             quickEdit: this.props.quickEdit,
             webGLRenderer: this.props.webGLRenderer,
             webLinksActivationKey: this.props.webLinksActivationKey,
             macOptionSelectionMode: this.props.macOptionSelectionMode,
             disableLigatures: this.props.disableLigatures,
+            screenReaderMode: this.props.screenReaderMode,
             parentProps: this.props
           });
 

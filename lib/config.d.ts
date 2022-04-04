@@ -50,7 +50,9 @@ export type configOptions = {
     cmdIsMeta: boolean;
   };
   padding: string;
+  preserveCWD: boolean;
   quickEdit: boolean;
+  screenReaderMode: boolean;
   scrollback: number;
   selectionColor: string;
   shell: string;
@@ -64,6 +66,7 @@ export type configOptions = {
   webGLRenderer: boolean;
   webLinksActivationKey: 'ctrl' | 'alt' | 'meta' | 'shift';
   windowSize: [number, number];
+  workingDirectory: string;
 };
 
 export type rawConfig = {

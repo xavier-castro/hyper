@@ -9,11 +9,15 @@ if (['--help', '-v', '--version'].includes(process.argv[1])) {
   process.exit();
 }
 
+// Enable remote module
+import {initialize as remoteInitialize} from '@electron/remote/main';
+remoteInitialize();
+
 // Native
 import {resolve} from 'path';
 
 // Packages
-import {app, BrowserWindow, Menu} from 'electron';
+import {app, BrowserWindow, Menu, screen} from 'electron';
 import {gitDescribe} from 'git-describe';
 import isDev from 'electron-is-dev';
 import * as config from './config';
@@ -94,8 +98,6 @@ app.on('ready', () =>
         let [startX, startY] = winSet.position;
 
         const [width, height] = options.size ? options.size : cfg.windowSize || winSet.size;
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const {screen} = require('electron');
 
         const winPos = options.position;
 

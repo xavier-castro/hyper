@@ -62,10 +62,7 @@ const reducer: ISessionReducer = (state = initialState, action) => {
       return state.set('activeUid', action.uid);
 
     case SESSION_SEARCH:
-      return state.setIn(['sessions', action.uid, 'search'], !state.sessions[action.uid].search);
-
-    case SESSION_SEARCH_CLOSE:
-      return state.setIn(['sessions', action.uid, 'search'], false);
+      return state.setIn(['sessions', action.uid, 'search'], action.value);
 
     case SESSION_CLEAR_ACTIVE:
       return state.merge(

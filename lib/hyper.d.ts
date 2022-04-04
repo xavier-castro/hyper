@@ -79,6 +79,7 @@ export type uiState = Immutable<{
   quickEdit: boolean;
   resizeAt: number;
   rows: number | null;
+  screenReaderMode: boolean;
   scrollback: number;
   selectionColor: string;
   showHamburgerMenu: boolean | '';
@@ -282,15 +283,17 @@ export type TermGroupOwnProps = {
   | 'modifierKeys'
   | 'onActive'
   | 'onContextMenu'
+  | 'onCloseSearch'
   | 'onData'
+  | 'onOpenSearch'
   | 'onResize'
   | 'onTitle'
   | 'padding'
   | 'quickEdit'
+  | 'screenReaderMode'
   | 'scrollback'
   | 'selectionColor'
   | 'sessions'
-  | 'toggleSearch'
   | 'uiFontFamily'
   | 'webGLRenderer'
   | 'webLinksActivationKey'
@@ -336,20 +339,22 @@ export type TermProps = {
   macOptionSelectionMode: string;
   modifierKeys: Immutable<{altIsMeta: boolean; cmdIsMeta: boolean}>;
   onActive: () => void;
+  onCloseSearch: () => void;
   onContextMenu: (selection: any) => void;
   onCursorMove?: (cursorFrame: {x: number; y: number; width: number; height: number; col: number; row: number}) => void;
   onData: (data: string) => void;
+  onOpenSearch: () => void;
   onResize: (cols: number, rows: number) => void;
   onTitle: (title: string) => void;
   padding: string;
   quickEdit: boolean;
   rows: number | null;
+  screenReaderMode: boolean;
   scrollback: number;
   search: boolean;
   searchAddon: SearchAddon | null;
   selectionColor: string;
   term: Terminal | null;
-  toggleSearch: () => void;
   uid: string;
   uiFontFamily: string;
   url: string | null;

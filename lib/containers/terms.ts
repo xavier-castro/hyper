@@ -1,6 +1,13 @@
 import Terms from '../components/terms';
 import {connect} from '../utils/plugins';
-import {resizeSession, sendSessionData, setSessionXtermTitle, setActiveSession, onSearch} from '../actions/sessions';
+import {
+  resizeSession,
+  sendSessionData,
+  setSessionXtermTitle,
+  setActiveSession,
+  openSearch,
+  closeSearch
+} from '../actions/sessions';
 
 import {openContextMenu} from '../actions/ui';
 import {getRootGroups} from '../selectors';
@@ -45,7 +52,8 @@ const mapStateToProps = (state: HyperState) => {
     webGLRenderer: state.ui.webGLRenderer,
     webLinksActivationKey: state.ui.webLinksActivationKey,
     macOptionSelectionMode: state.ui.macOptionSelectionMode,
-    disableLigatures: state.ui.disableLigatures
+    disableLigatures: state.ui.disableLigatures,
+    screenReaderMode: state.ui.screenReaderMode
   };
 };
 
@@ -66,8 +74,13 @@ const mapDispatchToProps = (dispatch: HyperDispatch) => {
     onActive(uid: string) {
       dispatch(setActiveSession(uid));
     },
-    toggleSearch(uid: string) {
-      dispatch(onSearch(uid));
+
+    onOpenSearch(uid: string) {
+      dispatch(openSearch(uid));
+    },
+
+    onCloseSearch(uid: string) {
+      dispatch(closeSearch(uid));
     },
 
     onContextMenu(uid: string, selection: any) {
