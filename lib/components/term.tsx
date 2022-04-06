@@ -8,7 +8,7 @@ import {WebglAddon} from 'xterm-addon-webgl';
 import {LigaturesAddon} from 'xterm-addon-ligatures';
 import {Unicode11Addon} from 'xterm-addon-unicode11';
 import {clipboard /*, shell */} from 'electron';
-import remote from '@electron/remote';
+import * as remote from '@electron/remote';
 import Color from 'color';
 import terms from '../terms';
 import processClipboard from '../utils/paste';
